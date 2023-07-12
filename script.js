@@ -1,49 +1,45 @@
-//All images taken from PEXELS.COM - free stock images
-"use strict";
-
-window.onload = function() {
-
-
-//Navigation bar buttons
-var about = document.querySelector("#navAbout");
-var services = document.querySelector("#navServices");
-var contact = document.querySelector("#navContact");
-
-about.onclick = function() {
-  document.querySelector("#aboutRow").scrollIntoView();
-  window.scrollBy(0, -50);
+.random-generator {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-services.onclick = function() {
-  document.querySelector("#servicesRow").scrollIntoView();
-  window.scrollBy(0, -50);
+#number {
+  font-size: 64px;
+  animation: randomJump 0.5s infinite;
 }
 
-contact.onclick = function() {
-  document.querySelector("#phoneContact").scrollIntoView();
-  window.scrollBy(0, -50);
+@keyframes randomJump {
+  0% {
+    transform: translateY(0);
+    color: #000;
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+    color: #000;
+  }
 }
 
-//Learn more jumbotron button jump to about div
-var bannerBtn = document.querySelector("#bannerBtn");
-bannerBtn.onclick = function() {
-  document.querySelector("#aboutRow").scrollIntoView();
-  window.scrollBy(0, -50);
+button {
+  margin: 5px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #3498db;
+  cursor: pointer;
 }
 
-//Clear input on click in the form
-var formName = document.querySelector("#formName");
-formName.onclick = function() {
-  formName.value = "";
+button:hover {
+  background-color: #2980b9;
 }
 
-var formEmail = document.querySelector("#formEmail");
-formEmail.onclick = function() {
-  formEmail.value = "";
-}
-
-var formMessage = document.querySelector("#formMessage");
-formMessage.onclick = function() {
-  formMessage.value = "";
-}
+button:focus {
+  outline: none;
 }
