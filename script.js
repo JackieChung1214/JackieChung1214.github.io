@@ -1,45 +1,32 @@
-.random-generator {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+var interval;
+
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 100) + 1;
 }
 
-#number {
-  font-size: 64px;
-  animation: randomJump 0.5s infinite;
-}
-
-@keyframes randomJump {
-  0% {
-    transform: translateY(0);
-    color: #000;
+function generateRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
   }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-    color: #000;
-  }
+  return color;
 }
 
-button {
-  margin: 5px;
-  width: 150px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  color: #fff;
-  background-color: #3498db;
-  cursor: pointer;
+function displayRandomNumber() {
+  var numberElement = document.getElementById("number");
+  var randomColor = generateRandomColor();
+  numberElement.textContent = generateRandomNumber();
+  numberElement.style.setProperty("color", randomColor, "important");
 }
 
-button:hover {
-  background-color: #2980b9;
+function stopRandom() {
+  clearInterval(interval);
 }
 
-button:focus {
-  outline: none;
+function restart() {
+  clearInterval(interval);
+  interval = setInterval(displayRandomNumber, 50);
 }
+
+interval = setInterval(displayRandomNumber, 50);
