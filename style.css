@@ -13,7 +13,7 @@ html, body {
 }
 
 #number {
-  font-size: 96px;
+  font-size: 200px;
   animation: randomJump 0.5s infinite;
 }
 
