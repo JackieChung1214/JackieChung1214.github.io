@@ -1,32 +1,49 @@
-var interval;
+//All images taken from PEXELS.COM - free stock images
+"use strict";
 
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 100) + 1;
+window.onload = function() {
+
+
+//Navigation bar buttons
+var about = document.querySelector("#navAbout");
+var services = document.querySelector("#navServices");
+var contact = document.querySelector("#navContact");
+
+about.onclick = function() {
+  document.querySelector("#aboutRow").scrollIntoView();
+  window.scrollBy(0, -50);
 }
 
-function generateRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+services.onclick = function() {
+  document.querySelector("#servicesRow").scrollIntoView();
+  window.scrollBy(0, -50);
 }
 
-function displayRandomNumber() {
-  var numberElement = document.getElementById("number");
-  var randomColor = generateRandomColor();
-  numberElement.textContent = generateRandomNumber();
-  numberElement.style.setProperty("color", randomColor, "important");
+contact.onclick = function() {
+  document.querySelector("#phoneContact").scrollIntoView();
+  window.scrollBy(0, -50);
 }
 
-function stopRandom() {
-  clearInterval(interval);
+//Learn more jumbotron button jump to about div
+var bannerBtn = document.querySelector("#bannerBtn");
+bannerBtn.onclick = function() {
+  document.querySelector("#aboutRow").scrollIntoView();
+  window.scrollBy(0, -50);
 }
 
-function restart() {
-  clearInterval(interval);
-  interval = setInterval(displayRandomNumber, 50);
+//Clear input on click in the form
+var formName = document.querySelector("#formName");
+formName.onclick = function() {
+  formName.value = "";
 }
 
-interval = setInterval(displayRandomNumber, 50);
+var formEmail = document.querySelector("#formEmail");
+formEmail.onclick = function() {
+  formEmail.value = "";
+}
+
+var formMessage = document.querySelector("#formMessage");
+formMessage.onclick = function() {
+  formMessage.value = "";
+}
+}
